@@ -1,0 +1,12 @@
+{
+    "name": "M.Redis Admin",
+    "require": {
+        "predis/predis": "1.1.1"
+    },
+    "authors": [
+        {
+            "name": "Mário Lucas",
+            "email": "mario@mariolucas.com.br"
+        }
+    ]
+}

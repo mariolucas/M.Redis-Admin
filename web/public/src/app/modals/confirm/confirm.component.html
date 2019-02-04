@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h6 class="modal-title" id="modal-title">{{dataConfirm.title}}</h6>
+  </div>
+  <div class="modal-body">
+     <div class="pt-3 text-center">
+     	<h6 [innerHTML]="dataConfirm.msg"></h6>
+     </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger btn-sm" (click)="activeModal.close('Ok click'); this[dataConfirm.function]( dataConfirm.functionParam )">{{dataConfirm.textBtn}}</button>
+</div>

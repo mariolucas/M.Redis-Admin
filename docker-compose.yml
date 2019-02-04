@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server:
+    build: ./docker/server/
+    ports:
+      - "80:80"
+    links:
+      - redis
+    volumes:
+      - ./web:/web
+      - ./docker/server/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./docker/server/.htaccess:/web/public/dist/.htaccess
+  redis:
+    build: ./docker/redis/

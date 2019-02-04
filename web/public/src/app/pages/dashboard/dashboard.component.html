@@ -1,0 +1,50 @@
+<div class="row">
+	
+	<app-host-info></app-host-info>
+
+	<aside class="col-sm-3 border-right">
+		<app-sidebar></app-sidebar>
+	</aside>
+	<div class="col-sm-9">
+		<nav class="navbar navbar-expand-ls" *ngIf="appService.dbSelected >= 0">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-sm btn-primary" (click)="openModalForm()"> 
+			  	<fa-icon icon="key"></fa-icon> Adicionar chave 
+			  </button>
+			  <button type="button" class="btn btn-sm btn-primary" (click)="appService.getKeys(appService.dbSelected)"> 
+			  	<fa-icon icon="sync-alt"></fa-icon> Atualizar chaves
+			  </button>
+			</div>
+			<form class="form-inline">
+		      <input class="form-control mr-sm-2 form-control-sm" type="search" [(ngModel)]="searchText" name="search" #name="ngModel" placeholder="Buscar" aria-label="Filtrar chave">
+		    </form>
+		</nav>
+		<section>
+			<div *ngIf="appService.dbSelected == -1">
+				Selecione um banco de dados para gerenciar!
+			</div>
+			<div *ngIf="appService.dbSelected >= 0">
+				<table class="table table-borderless table-hover table-sm">
+				  <thead>
+				    <tr>
+						<th scope="col" width="50"><strong>#</strong></th>
+						<th scope="col"><strong>Chaves</strong></th>
+						<th scope="col" width="150" ><strong>Tipo</strong></th>
+						<th scope="col" width="150" class="text-right" ><strong>Tempo de expiração</strong></th>
+						<th scope="col" width="100" class="text-center" ><strong>Excluir</strong></th>
+					</tr>
+				  </thead>
+				  <tbody>
+				    <tr  *ngFor='let list of appService.listKeys | keyFilter:searchText ; let i = index' >
+				      <th scope="row">{{i + 1}}</th>
+				      <td class="click" (click)="openModalKeyInfo(list.key, appService.dbSelected)">{{list.key}} </td>
+				      <td>{{list.type}}</td>
+				      <td class="text-right">{{list.ttl}} <span class="small">s</span></td>
+				      <td class="text-center click" (click)="openModalDelete(list.key)" ><fa-icon icon="trash-alt"></fa-icon></td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+</div>

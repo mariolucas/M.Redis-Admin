@@ -1,0 +1,13 @@
+@import '../../styles/_var';
+
+.listDb {
+	li {
+		padding: 3px 10px;
+    	border-radius: 4px;
+    	cursor: pointer;
+		&.active {
+			background-color: $appColor0;
+			color: $baseColor0;
+		}
+	}
+}

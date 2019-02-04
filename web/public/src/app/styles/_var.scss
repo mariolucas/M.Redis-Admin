@@ -1,0 +1,38 @@
+/**
+ * Fontes
+ */
+
+$fontSize0: 14px;
+
+/**
+ * BASE COLORS
+ * São cores neutras utilizadas como base para uso geral, não
+ * relacionado com o tema, como a cor geral das fontes.
+ */
+$baseColor0: #FFFFFF;
+$baseColor1: #000000;
+$baseColor2: #AAAAAA;
+$baseColor3: #333333;
+
+/**
+ * APP COLORS
+ * Cores específicas do tema da aplicação.
+ * As cores bases podem ser repetidas caso seja utilizada 
+ * para customização do layout.
+ */
+
+
+// $appColor0: #003349; // Azul escuro
+$appColor0: #a22b15; // Vermmelho escuro
+
+// $appColor1: #2ba3cc; // Azul claro
+$appColor1: #d93c1f; // Vermelho claro
+
+$appColor2: #1e1e1e; // Cinza
+$appColor3: #0f0f0f; // Cinza com tonalidade mais escura 
+
+$bold: 700;
+
+$theme-colors: (
+  "primary": $appColor0
+);

@@ -1,0 +1,131 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+@import 'app/styles/_var';
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+    font-size: $fontSize0;
+    background-color: $appColor2;
+    color: $baseColor2;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da !important;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+:focus, .focus {
+    box-shadow: 0 0 !important;
+}
+
+section {
+    width: 100%;
+    padding: 15px;
+}
+
+.box {
+    padding: 15px;
+}
+
+aside {
+	overflow: hidden;
+    height: calc(100vh - 130px);
+    &:hover {
+    	overflow: auto;
+    }
+}
+
+.border-right {
+	border-right-color: $appColor3 !important;
+}
+
+ul {
+	list-style: none;
+    padding-left: 0;
+    ul {
+        padding-left: 25px;
+    }
+}
+
+code {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.nav-tabs .nav-link:hover, 
+.nav-tabs .nav-link:focus {
+    outline: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.click {
+    cursor: pointer;
+}
+
+b, strong {
+    font-weight: $bold;
+}
+
+.form-control {
+    font-size: $fontSize0;
+}
+
+::placeholder {
+  color: $baseColor2 !important;
+}
+:-ms-input-placeholder { 
+  @extend ::placeholder;
+}
+
+::-ms-input-placeholder {
+  @extend ::placeholder;
+}
+
+
+thead {
+    strong {
+        font-weight: $bold;
+        color: $appColor1;
+    }
+    tr {
+        border-bottom: 1px solid $appColor0;
+    }
+}
+
+.infoTab  .nav-tabs {
+    border-color: $appColor0;
+}
+
+.infoTab .nav-tabs .nav-link.active {
+    border-color: transparent;
+    background-color: $appColor0;
+    color: $baseColor0;
+}
+
+.infoTab .nav-tabs .nav-link {
+    color: $baseColor2;
+}
+
+.infoTab .nav-tabs .nav-link:hover {
+    border-color: transparent;
+}
+
+app-host-info {
+    padding: 0 15px 15px 15px;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    letter-spacing: -1.4px;
+}

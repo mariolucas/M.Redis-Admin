@@ -1,0 +1,10 @@
+<ul class="listDb">
+	<li *ngFor='let db of appService.dbs; let i = index' 
+	     class="{{db.id == appService.dbSelected ? 'active' : '' }}" 
+	     (click)="appService.getKeys(db.id);" >
+	     
+		<span >
+			<fa-icon icon="database"></fa-icon> {{db.name}}
+		</span>
+	</li>
+</ul>

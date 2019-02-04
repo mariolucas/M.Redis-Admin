@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-4"  *ngFor="let server of appService.servers; let i = index " >
+        <div class="box" >
+            <h5>
+                <a href="/dashboard/{{i}}">
+                    <strong>
+                        {{server.name}}
+                    </strong>
+                </a>
+            </h5>
+            <p>
+                <strong>Host</strong>: {{server.host}} <br>
+                <strong>Port</strong>: {{server.port}} <br>
+                <strong>Timeout</strong>: {{server.timeout ? server.timeout : 0 }} s <br>
+                <strong>Auth</strong>: {{server.auth ? 'Yes' : 'No' }}
+            </p>
+        </div>
+	</div>
+</div>

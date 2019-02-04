@@ -1,0 +1,87 @@
+<div class="modal-header">
+    <h6 class="modal-title" id="modal-basic-title"> 
+    <fa-icon icon="clock"></fa-icon> 
+    {{ model.edit ? 'Editar':model.editTtl ? 'Alterar tempo da':'Adicionar'}} Chave </h6>
+</div>
+<form (ngSubmit)="onSubmit(); activeModal.close('Save click')" #formKey="ngForm">
+	<div class="modal-body">
+		<div class="row">
+			<div class="form-group col" [hidden]="model.editTtl">
+			    <label>Tipo</label>
+				<select [disabled]="model.edit || model.newValue " class="form-control"  name="type" [(ngModel)]="model.type">
+					<option value="String">String</option>
+					<option value="Set">Set</option>
+					<option value="List">List</option>
+					<option value="zSet">ZSet</option>
+					<option value="Hash">Hash</option>
+				</select>
+			</div>
+			<div *ngIf="model.type || model.editTtl" [hidden]="model.edit || model.newValue " class="form-group col">
+			    <label>Tempo de expiração <span class="small">em segundos</span></label>
+			    <input [disabled]="model.newValue" type="num" class="form-control" [(ngModel)]="model.ttl" name="ttl" #name="ngModel" placeholder="Valor em segundos (opcional) ">
+			</div>
+		</div>
+	 	<div *ngIf="model.type">
+	 		<div class="form-group">
+			    <label>Key</label>
+			    <input [disabled]="model.edit || model.newValue " type="text" class="form-control" [(ngModel)]="model.key" name="key" #name="ngModel" placeholder="Insira uma chave" required>
+			    <div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+			</div>
+			<div class="form-group" *ngIf='model.type=="Hash"'>
+			    <label>Hash key</label>
+			    <input [disabled]="model.edit" type="text" class="form-control" [(ngModel)]="model.hash" name="hash" #name="ngModel" placeholder="Insira uma hash" required>
+			    <div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+			</div>
+			<div class="form-group" *ngIf='model.type=="List"'>
+			    <label>Indice</label>
+			    <select required class="form-control" [(ngModel)]="model.selectIndex" name="selectIndex">
+			    	<option value="begin">Início da lista</option>
+			    	<option value="end">Fim da lista</option>
+			    	<option value="index" selected="true">Definir posição</option>
+			    </select>
+
+			    <div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+			</div>
+			<div  class="form-group" *ngIf="model.selectIndex == 'index'">
+		    	<input required type="num" class="form-control" [(ngModel)]="model.index" name="index" #name="ngModel" placeholder="Defina uma posição da lista" >
+				<span class="small" *ngIf="model.edit">
+					A lista será reordenada se alterar esse índice
+				</span>
+				<div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+		    </div>
+			<div class="form-group" *ngIf='model.type=="zSet"'>
+			    <label>Score</label>
+			    <input type="text" class="form-control" [(ngModel)]="model.score" name="score" #name="ngModel" placeholder="Insira o score" required>
+			    <div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+			</div>
+			<div class="form-group">
+			    <label>Value</label>
+			    <textarea class="form-control" [(ngModel)]="model.value" name="value" #name="ngModel" rows="3"></textarea>
+			    <div [hidden]="name.valid || name.pristine"
+				     class="alert alert-danger">
+				  Esse campo é obrigatório
+				</div>
+			</div>
+	 	</div>
+	</div>
+	<div class="modal-footer" *ngIf="model.type || model.editTtl">
+		<div class="btn-group" >
+			<button type="submit" class="btn btn-primary btn-sm" [disabled]="!formKey.form.valid" >{{ model.edit ? 'Editar':model.editTtl ? 'Definir':'Adicionar'}}</button>
+		</div>
+	</div>
+ </form>
