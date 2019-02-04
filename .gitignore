@@ -22,5 +22,4 @@ web/public.DS_Store
 web/core/vendor
 web/core/composer.phar
 
-web/public/dist/
 web/public/.tmp/
