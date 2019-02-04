@@ -10,7 +10,7 @@ $ git clone https://github.com/mariolucas/M.Redis-Admin.git
 $ cd M.Redis-Admin/web/core
 $ composer install
 ```
-M.Redis Admin já está configurado para se conectar a instalação Redis local, mas, caso deseje inserir novas conexões acesse a pasta de configurações **m.redis/web/core/config/** e edite o arquivo **serversConfig.php**: 
+M.Redis Admin já está configurado para se conectar a instalação Redis local, mas, caso deseje inserir novas conexões, acesse a pasta de configurações **m.redis/web/core/config/** e edite o arquivo **serversConfig.php**: 
 
 ### Usando Docker
 
@@ -22,7 +22,7 @@ $ docker-composer up -d
 A aplicação irá rodar em http://localhost e http://api.localhost para acesso a API.
 Para alterar os dominios edite o arquivo **web/docker/server/vhost.conf**.
 
-**Obs**.: *Não esqueça antes de criar os dominios no arquivo de hosts do seus sistema operacional.* 
+**Obs**.: *Não esqueça de criar os dominios no arquivo de hosts do seus sistema operacional.* 
 
 ### Usando Apache
 
